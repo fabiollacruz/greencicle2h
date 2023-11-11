@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Login</title>
+    <link rel="stylesheet" href="/folhalogin.css">
+    <script src="/js/script.js"></script>
+</head>
+<nav>
+    <a href="/greencicle/usuario/home"><img class="back" src="/img/back-button.png" alt=""></a>
+    <h1>Green Cicle</h1>
+    <a href="/greencicle/usuario/login"><img class="back2" src=" /img/icons8-logout-50.png" alt=""></a>
+
+</nav>
+
+<body class="page-login">
+    <div class="container">
+        <h1>Login</h1>
+
+        <form id="CadReserva" th:action="@{/greencicle/usuario/add-usuario}" th:object="${usuario}" method="post" onsubmit="return verificar()">
+        
+         
+            <div class="form-group">
+                <label>Usuário:</label>
+                <input type="text" id="username" th:fild="*{nome}" name="username" >
+            </div>
+            <div class="form-group">
+                <label for="password">Senha:</label>
+                <input type="password" id="password" th:fild="*{senha}" name="password">
+            </div>
+            <input type="submit" value="Entrar" onsubmit="ola()" >
+            <div class="cad" >
+                <A href="/greencicle/usuario/esq_senha" id="esqueci">Esqueci a senha</A>
+                <A href="/greencicle/usuario/novo-usuario" id="esqueci">Cadastre-se</A>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

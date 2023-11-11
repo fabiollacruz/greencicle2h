@@ -1,11 +1,16 @@
 package com.greencicle.tcc.greencicle2h.model;
-import java.time.LocalDate;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 @Entity
 @Table(name="Usuario")
 public class Usuario {
 	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String cpf;
 	private String nome;
@@ -16,11 +21,10 @@ public class Usuario {
 	private String cep;
 	private String bairro;
 	private String uf;
+	private String mensagem;
 	
-	private boolean CodStatusUsurario;
-    private boolean getCodStatusUsurario(boolean CodStatusUsurario) {
-    return CodStatusUsurario; 
-    }
+	private boolean codStatusUsuario;
+    
 	public Long getId() {
 		return id;
 	}
@@ -101,12 +105,27 @@ public class Usuario {
 		this.uf = uf;
 	}
 
-	public boolean getCodStatusUsurario() {
-		return CodStatusUsurario;
+	public boolean getCodStatusUsuario() {
+		return codStatusUsuario;
 	}
 
-	public void setCodStatusUsurario(boolean codStatusUsurario) {
-		CodStatusUsurario = codStatusUsurario;
-	} 
+	public void setCodStatusUsuario(boolean codStatusUsuario) {
+		this.codStatusUsuario = codStatusUsuario;
+	}
+
+	public void setStatus(boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getMensagem() {
+		return mensagem;
+	}
+
+	public void setMensagem(String mensagem) {
+		this.mensagem = mensagem;
+	}
+
+	
 	
 	}

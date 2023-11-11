@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="/folha.css">
+    <script src="/js/script.js"></script>   
+    <nav>
+        <a href="/greencicle/usuario/home"><img class="back" src="/img/back-button.png" alt=""></a>
+        <h1>Green Cicle</h1>
+        <a href="/greencicle/usuario/home"><img class="back2" src=" /img/icons8-logout-50.png" alt=""></a>
+    
+    </nav>
+</head>
+<body>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div class="container">
+        <h1>nos contate</h1>
+      <form  th:action="@{/greencicle/usuario/add-usuario}" th:object="${usuario}" method="post" onsubmit="return cadastra()">
+               <div class="form-group">
+            <div class="agrupar1">
+                <label for="nome">Nome:</label>
+                <input type="text" id="username" th:fild="*{nome}"name="nome" >
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email"th:fild="*{email}" id="email" name="email" >
+            </div>
+        </div>
+            <div class="form-group">
+             <div class="agrupar2">
+                <label for="senha">número</label>
+                <input type="tel" th:fild="*{telefone}"id="tel" name="tel"   />
+            </div>
+            <div class="form-group">
+            <label for="mensagem">menssagem:</label>
+            <textarea name="mensagem" th:fild="*{mensagem}"id="mensage" cols="30" rows="10"></textarea>
+            </div>
+
+            <input type="submit" value="Cadastrar" onClick="return check()">
+        </form>
+    </div>
+</body>
+</html>

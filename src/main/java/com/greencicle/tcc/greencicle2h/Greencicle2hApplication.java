@@ -8,6 +8,8 @@ public class Greencicle2hApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Greencicle2hApplication.class, args);
+		System.out.println("iniciado");
+		
 	}
 
 }

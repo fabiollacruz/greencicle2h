@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Estilos CSS para a tabela */
+    body{
+        font-family: Arial, sans-serif;
+    background-image: url(fundogreencicle.jpg);
+    background-size:100%;
+    margin: 0;
+    padding: 0;
+    background-size: COVER;
+    color: aliceblue;
+    text-align: center;
+    
+
+}
+    
+    table {
+      border-collapse: collapse;
+      width: 50%;
+      margin: 20px auto;
+
+    }
+
+    th, td {
+      border: 1px solid rgb(81, 245, 6) ;
+      padding: 8px;
+      text-align: left;
+      
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+    <h1>Tabela</h1>
+  <table>
+    <thead>
+      <tr th:each="Usuario: ${listUsuario}">
+        <td th:text="${usuario.email}">Email </td>
+        <td th:text="${usuario.senha}">senha</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td th:text="${usuario.email}">João</td>
+        <td th:text="${usuario.senha}">25</td>
+    
+      </tr>
+      <tr>
+        <td th:text="${usuario.email}" >Maria</td>
+        <td th:text="${usuario.senha}">30</td>
+      </tr>
+      <tr>
+        <td>Pedro</td>
+        <td>22</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
