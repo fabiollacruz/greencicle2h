@@ -176,14 +176,14 @@
 <body>
     <header>
         <img class="heder_foto" src="/img/greencyclelogo.png" alt="" height="5%" width="5%"/>
-        <a href="/greencicle/usuario/home" class="links">home</a>
+        <a th:href="@{/greencicle/usuario/home/{id}(id=${usuario.id})}" class="links">home</a>
         <a href="/greencicle/usuario/noticia " class="links">notícia</a>
         <a href="/greencicle/usuario/contato" class="links">contato</a>
         <a href="/greencicle/usuario/login" class="links">login</a>
      </header>
   
   <div class="box">
-      <p class="palavra">Bem-vindo!</p>
+      <p class="palavra">Bem-vindo <span th:text="${usuario.nome}"></span>!</p>
   </div>
    <div class="blim"> 
   <img class="imagem1" src="/img/greenInit.png" alt="" />

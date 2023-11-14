@@ -12,9 +12,12 @@ import org.springframework.data.jpa.repository.Query;
 
 import com.greencicle.tcc.greencicle2h.model.Usuario;
 
-public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
-@Query (value = "select * form usuario c.where c.email=? and c.senha", nativeQuery = true)
+public interface UsuarioRepository extends JpaRepository<Usuario, String>{
+	
+@Query (value = "select * from usuario c where c.email=? and c.senha=?", nativeQuery = true)
 Usuario findByLogin(String email, String senha);
 
+@Query (value = "select * from usuario c where c.id=?", nativeQuery = true)
+Usuario findById(Long id);
 
 }

@@ -5,11 +5,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.greencicle.tcc.greencicle2h.model.Usuario;
 import com.greencicle.tcc.greencicle2h.repository.UsuarioRepository;
@@ -41,13 +44,18 @@ public class UsuarioController {
 		return "redirect:/greencicle/usuario/login";
 	}
 	
+	//a th:href="@{/greencicle/usuario/home/{id}(id=${usuario.id})}" modelo de como colocar os links das páginas
+	//só não coloque o "/{id}(id=${usuario.id})" em páginas onde o usuário não está logado ou quando o site precisa verificar
+	//as credenciais, como em páginas de cadastro, login e verificação de credenciais, mas em todos os outros links 
+	//tem que colocar assim no HTML
 	
-	@GetMapping("/home")
-	public String showHome(Usuario usuario, Model model) {
-		model.addAttribute("usuario", usuario);
-		return "greencicle/home";
-		
-	}
+	@GetMapping("/home/{id}")
+	 public ModelAndView usuariodetalhes(@PathVariable("id") Long id ){
+        ModelAndView mv = new ModelAndView("greencicle/home");
+        Usuario usuario = usuarioRepository.findById(id);
+        mv.addObject("usuario",usuario);
+        return mv;
+    }
 	
 	@GetMapping("/noticia")
 	public String showNoticia(Usuario usuario, Model model) {
@@ -69,14 +77,18 @@ public class UsuarioController {
 	}
 	//puxar o login ciriado no banco de dados 
 	@PostMapping("/login")
-	public String logon(Usuario usuario, Model model) {
-		Usuario usuarioDb = usuarioRepository.findByLogin(usuario.getEmail(), usuario.getSenha());
-		if(usuarioDb !=null && usuario.getSenha().equals(usuarioDb.getSenha())&& usuario.getEmail().equals(usuarioDb.getEmail())) {
-			return "redirect:/greencicle/usuario/home";
-			
-		}
-		return "greencicle/login";
-	}
+	  public ModelAndView efetuarLogin(@ModelAttribute Usuario usuario){
+        ModelAndView page = new ModelAndView();
+        usuario = usuarioRepository.findByLogin(usuario.getEmail(), usuario.getSenha());
+        if (usuario ==null) {
+            page.setViewName("greencicle/login");
+        }
+        else{
+            page.setViewName("greencicle/home");
+        }
+        page.addObject("usuario",usuario);
+        return page;
+    }
 	
 	@GetMapping("/oceno")
 	public String showOceano(Usuario usuario, Model model) {

@@ -19,16 +19,16 @@
     <div class="container">
         <h1>Login</h1>
 
-        <form id="CadReserva" th:action="@{/greencicle/usuario/add-usuario}" th:object="${usuario}" method="post" onsubmit="return verificar()">
+        <form id="CadReserva"   method="post" onsubmit="return verificar()">
         
          
             <div class="form-group">
                 <label>Usuário:</label>
-                <input type="text" id="username" th:fild="*{nome}" name="username" >
+                <input type="text" id="username" name="email" >
             </div>
             <div class="form-group">
                 <label for="password">Senha:</label>
-                <input type="password" id="password" th:fild="*{senha}" name="password">
+                <input type="password" id="password"  name="senha">
             </div>
             <input type="submit" value="Entrar" onsubmit="ola()" >
             <div class="cad" >
