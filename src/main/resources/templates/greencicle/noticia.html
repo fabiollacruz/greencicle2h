@@ -82,10 +82,10 @@ margin-bottom: 50px;
 <body>
     <header>
     <img class="header_foto" src="/img/greencyclelogo.png" alt="" height="5%" width="5%"/>
-       <a href="/greencicle/usuario/home" class="links">home</a>
-        <a href="/greencicle/usuario/noticia " class="links">notícia</a>
-        <a href="/greencicle/usuario/contato" class="links">contato</a>
-        <a href="/greencicle/usuario/login" class="links">login</a>
+    <a th:href="@{/greencicle/usuario/home/{id}(id=${usuario.id})}" class="links">home</a>
+    <a th:href="@{/greencicle/usuario/noticia/{id}(id=${usuario.id})}" class="links">notícia</a>
+    <a th:href="@{/greencicle/usuario/contato/{id}(id=${usuario.id})}" class="links">contato</a>
+    <a th:href="@{/greencicle/usuario/login}" class="links">login</a>
      </header>
 
 <div class="box">

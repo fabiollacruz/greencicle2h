@@ -57,15 +57,17 @@ public class UsuarioController {
         return mv;
     }
 	
-	@GetMapping("/noticia")
-	public String showNoticia(Usuario usuario, Model model) {
+	@GetMapping("/noticia/{id}")
+	public String showNoticia(Usuario usuario, Model model, @PathVariable("id") Long id ){
 		model.addAttribute("usuario", usuario);
+		usuario = usuarioRepository.findById(id);
 		return "greencicle/noticia";
 	}
 	
-	@GetMapping("/contato")
-	public String showContato(Usuario usuario, Model model) {
+	@GetMapping("/contato/{id}")
+	public String showContato(Usuario usuario, Model model, @PathVariable("id") Long id) {
 		model.addAttribute("usuario", usuario);
+		usuario = usuarioRepository.findById(id);
 		return "greencicle/contato";
 	}
 	
@@ -90,15 +92,17 @@ public class UsuarioController {
         return page;
     }
 	
-	@GetMapping("/oceno")
-	public String showOceano(Usuario usuario, Model model) {
+	@GetMapping("/oceno/{id}")
+	public String showOceano(Usuario usuario, Model model, @PathVariable("id") Long id) {
 		model.addAttribute("usuario", usuario);
+		usuario = usuarioRepository.findById(id);
 		return "greencicle/oceno";
 	}
 	
-	@GetMapping("/energia")
-	public String showEnergia(Usuario usuario, Model model) {
+	@GetMapping("/energia/{id}")
+	public String showEnergia(Usuario usuario, Model model, @PathVariable("id") Long id) {
 		model.addAttribute("usuario", usuario);
+		usuario = usuarioRepository.findById(id);
 		return "greencicle/energia";
 	}
 	
@@ -108,9 +112,10 @@ public class UsuarioController {
 		return "greencicle/esq_senha";
 	}
 	
-	@GetMapping("/Greentech")
-	public String showGreentech(Usuario usuario, Model model) {
+	@GetMapping("/Greentech/{id}")
+	public String showGreentech(Usuario usuario, Model model, @PathVariable("id") Long id) {
 		model.addAttribute("usuario", usuario);
+		usuario = usuarioRepository.findById(id);
 		return "greencicle/Greentech";
 	}
 	@GetMapping("/novo-produto")

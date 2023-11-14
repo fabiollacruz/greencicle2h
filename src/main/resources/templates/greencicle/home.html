@@ -177,9 +177,9 @@
     <header>
         <img class="heder_foto" src="/img/greencyclelogo.png" alt="" height="5%" width="5%"/>
         <a th:href="@{/greencicle/usuario/home/{id}(id=${usuario.id})}" class="links">home</a>
-        <a href="/greencicle/usuario/noticia " class="links">notícia</a>
-        <a href="/greencicle/usuario/contato" class="links">contato</a>
-        <a href="/greencicle/usuario/login" class="links">login</a>
+        <a th:href="@{/greencicle/usuario/noticia/{id}(id=${usuario.id})}" class="links">notícia</a>
+        <a th:href="@{/greencicle/usuario/contato/{id}(id=${usuario.id})}" class="links">contato</a>
+        <a th:href="@{/greencicle/usuario/login}" class="links">login</a>
      </header>
   
   <div class="box">
@@ -203,16 +203,16 @@
 
 <div class="caixas">
     <div class="caixinhas">
-        <a href="Greentech.html" > <img class="Greentech" src="/img/Greentech.jpg" height="100%" width="100%"></a>
-        <a href="Greentech.html" class="a-link">GreenTech</a>
+        <a th:href="@{/greencicle/usuario/Greentech/{id}(id=${usuario.id})}" > <img class="Greentech" src="/img/Greentech.jpg" height="100%" width="100%"></a>
+        <a th:href="@{/greencicle/usuario/Greentech/{id}(id=${usuario.id})}" class="a-link">GreenTech</a>
         </div> 
     <div class="caixinhas">
-        <a href="enrgia.html"> <img class="renovavel" src="/img/renovavel.jpg" height="100%" width="100%"></a>
-        <a href="enrgia.html"class="a-link2">Fontes Renováveis</a>
+        <a th:href="@{/greencicle/usuario/energia/{id}(id=${usuario.id})}"> <img class="renovavel" src="/img/renovavel.jpg" height="100%" width="100%"></a>
+        <a th:href="@{/greencicle/usuario/energia/{id}(id=${usuario.id})}"class="a-link2">Fontes Renováveis</a>
     </div> 
     <div class="caixinhas">
-        <a href="oceno.html"> <img class="meio-ambiente" src="/img/marinha.jpg" height="100%" width="100%"></a>
-    <a href="oceno.html" class="a-link">Oceanos</a>
+        <a th:href="@{/greencicle/usuario/oceno/{id}(id=${usuario.id})}"> <img class="meio-ambiente" src="/img/marinha.jpg" height="100%" width="100%"></a>
+    <a th:href="@{/greencicle/usuario/oceno/{id}(id=${usuario.id})}" class="a-link">Oceanos</a>
     </div> 
 
             </div>
